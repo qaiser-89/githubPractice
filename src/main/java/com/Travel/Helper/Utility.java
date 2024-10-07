@@ -82,7 +82,7 @@ public class Utility
 		}
 		return element;
 	}	
-	public void clickOnElement(WebDriver driver, WebElement element)
+	public static void clickOnElement(WebDriver driver, WebElement element)
 	{
 		try {
 			element.click();
