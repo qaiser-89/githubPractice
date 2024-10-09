@@ -32,7 +32,7 @@ public class HomePage
 		return signInStatus;
 	}
 	
-	public void onyWayFlight()
+	public PassengersDetailsPage onyWayFlight()
 	{
 		Utility.selectFromListByVisibleText(driver, from_selection, "Sydney");
 		Utility.selectFromListByVisibleText(driver, to_selection, "New York");
@@ -40,6 +40,8 @@ public class HomePage
 		Utility.selectFromListByVisibleText(driver, departingMonth_selection, "January 2025");
 		Utility.waitForWebElement(driver, flight_selection).click();
 		Utility.waitForWebElement(driver, continue_btn).click();
+		PassengersDetailsPage passDetails=new PassengersDetailsPage(driver);
+		return passDetails;
 	}
 	
 	
