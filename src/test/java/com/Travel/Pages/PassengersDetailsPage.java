@@ -1,8 +1,6 @@
 package com.Travel.Pages;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import com.Travel.Helper.Utility;
 
 public class PassengersDetailsPage 
