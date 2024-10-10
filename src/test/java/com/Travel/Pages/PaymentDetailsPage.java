@@ -13,21 +13,18 @@ public class PaymentDetailsPage
 		this.driver=driver;
 	}
 	
-	protected By select_card_typ = By.xpath("//tbody/tr[1]/td[2]//input");
+	protected By select_card_typ = By.xpath("//input[@value='visa']");
 	protected By card_number =By.xpath("//tbody/tr[1]/td[2]//input");
 	protected By expiry_day = By.xpath("//tbody/tr[1]/td[2]//input");
 	protected By expiry_year = By.xpath("//select[@name='expiry_year']");
 	protected By paynow_btn = By.xpath("//input[@value='Pay now']");
-	
-	
-	public void enterPaymentDetails(String cardnum, String day, String year)
+	public void enterPaymentDetails(String cardType, String cardnum, String day, String year)
 	{
-		
-		Utility.waitForWebElement(driver, select_card_typ).click();
+		Utility.waitForWebElement(driver, By.xpath("//input[@value='"+cardType+"']"));
 		Utility.waitForWebElement(driver, card_number).sendKeys(cardnum);
 		Utility.selectFromListByVisibleText(driver, expiry_day, day);
 		Utility.selectFromListByVisibleText(driver, expiry_year, year);
-		Utility.clickOnElement(driver, driver.findElement(card_number));
+		Utility.waitForWebElement(driver, paynow_btn).click();
 		
 	}
 

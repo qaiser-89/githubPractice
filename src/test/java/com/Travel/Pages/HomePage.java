@@ -33,15 +33,18 @@ public class HomePage
 		return signInStatus;
 	}
 	
-	public void onyWayFlight()
+	public PassengersDetailsPage  onyWayFlight(String flightType)
 	{
-		Utility.waitForWebElement(driver, flight_oneway_select).click();
+		Utility.waitForWebElement(driver, By.xpath("//input[@value='"+flightType+"']")).click();
 		Utility.selectFromListByindex(driver, from_selection, 1);
 		Utility.selectFromListByindex(driver, to_selection, 2);
+		//Utility.selectFromListByVisibleText(driver, departingDate_selection, "January 2025");
 		Utility.selectFromListByindex(driver, departingDate_selection, 17);
 		Utility.selectFromListByindex(driver, departingMonth_selection, 15);
 		Utility.waitForWebElement(driver, flight_selection).click();
 		Utility.waitForWebElement(driver, continue_btn).click();
+		PassengersDetailsPage pass_details=new PassengersDetailsPage(driver);
+		return pass_details;
 	}
 	
 	

@@ -113,18 +113,18 @@ public class Utility
 		}
 		public static void selectFromListByValue(WebDriver driver, By locator, String valueToSelect)
 		{
-			Select sel=new Select(driver.findElement(locator));
+			Select sel=new Select(Utility.waitForWebElement(driver, locator));
 			sel.selectByValue(valueToSelect);
 		}
 		public static void selectFromListByindex(WebDriver driver, By locator, int indextoselect)
 		{
-			Select sel=new Select(driver.findElement(locator));
+			Select sel=new Select(Utility.waitForWebElement(driver, locator));
 			sel.selectByIndex(indextoselect);
 		}
 		public static void selectFromListByVisibleText(WebDriver driver, By locator, String optionToSelect)
 		{
-			Select sel=new Select(driver.findElement(locator));
-			sel.deselectByVisibleText(optionToSelect);
+			Select sel=new Select(Utility.waitForWebElement(driver, locator));
+			sel.selectByVisibleText(optionToSelect);
 		}
 		
 }
