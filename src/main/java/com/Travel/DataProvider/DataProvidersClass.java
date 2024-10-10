@@ -11,5 +11,12 @@ public class DataProvidersClass
 		return arr;
 	}
 	
+	@DataProvider(name="TestDataForOneWay")
+	public static Object[][] getDataForOnewayBooking()
+	{
+		Object [][] arr1=ExcelReader.getDataFromExcel("OneWayBooking");
+		return arr1;
+	}
+	
 
 }

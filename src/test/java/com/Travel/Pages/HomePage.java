@@ -25,8 +25,8 @@ public class HomePage
 	protected By flight_selection=By.xpath("//body[1]/div[1]/form[1]/table[2]/tbody[1]/tr");
 	protected By departingDate_selection=By.xpath("//select[@id='departDay']");
 	protected By departingMonth_selection=By.xpath("//select[@id='departMonth']");
-	protected By continue_btn = By.xpath("//body[1]/div[1]/form[1]/table[2]/tbody[1]/tr[1]/th[1]/input[1]");
-	
+	protected By continue_btn = By.xpath("//input[@value='Continue']");
+	protected By signOut_btn= By.xpath("//a[normalize-space()='Sign off']");
 	public boolean isSingedInShowed()
 	{
 		boolean signInStatus =	Utility.waitForWebElement(driver, signedInMessage).isDisplayed();
@@ -45,6 +45,11 @@ public class HomePage
 		Utility.waitForWebElement(driver, continue_btn).click();
 		PassengersDetailsPage pass_details=new PassengersDetailsPage(driver);
 		return pass_details;
+	}
+	
+	public void signoutOfApp()
+	{
+		Utility.waitForWebElement(driver, signOut_btn).click();
 	}
 	
 	
