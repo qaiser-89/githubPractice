@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 import com.Travel.Helper.Utility;
 
@@ -18,7 +19,7 @@ public class HomePage
 	
 	protected By signedInMessage= By.xpath("//div[contains(text(),'Signed in!')]");
 	protected By oneWay= By.xpath("//input[@value='oneway']");
-	protected By flight_typ_select=By.xpath("//input[@name='tripType']");
+	protected By flight_oneway_select=By.xpath("//input[@name='tripType']");
 	protected By from_selection=By.xpath("//select[@name='fromPort']");
 	protected By to_selection=By.xpath("//select[@name='toPort']");
 	protected By flight_selection=By.xpath("//body[1]/div[1]/form[1]/table[2]/tbody[1]/tr");
@@ -34,10 +35,11 @@ public class HomePage
 	
 	public void onyWayFlight()
 	{
-		Utility.selectFromListByVisibleText(driver, from_selection, "Sydney");
-		Utility.selectFromListByVisibleText(driver, to_selection, "New York");
-		Utility.selectFromListByVisibleText(driver, departingDate_selection, "15");
-		Utility.selectFromListByVisibleText(driver, departingMonth_selection, "January 2025");
+		Utility.waitForWebElement(driver, flight_oneway_select).click();
+		Utility.selectFromListByindex(driver, from_selection, 1);
+		Utility.selectFromListByindex(driver, to_selection, 2);
+		Utility.selectFromListByindex(driver, departingDate_selection, 17);
+		Utility.selectFromListByindex(driver, departingMonth_selection, 15);
 		Utility.waitForWebElement(driver, flight_selection).click();
 		Utility.waitForWebElement(driver, continue_btn).click();
 	}
